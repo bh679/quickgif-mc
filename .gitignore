@@ -44,3 +44,6 @@ __pycache__/
 .claude/scheduled_tasks.lock
 
 
+
+# Local worktrees
+.claude/worktrees/

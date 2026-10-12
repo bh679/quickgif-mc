@@ -1,0 +1,14 @@
+{
+  "key.categories.quickgif": "Quick GIF",
+  "key.quickgif.record": "Record GIF",
+  "quickgif.recording": "Recording a GIF. Press %s again to save it.",
+  "quickgif.saving": "Saving GIF…",
+  "quickgif.still_saving": "Still saving the last GIF…",
+  "quickgif.saved": "Saved GIF as %s (%s MB, %s s).",
+  "quickgif.stopped_size": "Stopped before it got too big to share.",
+  "quickgif.stopped_time": "Stopped at the time limit.",
+  "quickgif.empty": "No frames were captured, so no GIF was saved.",
+  "quickgif.failed": "Couldn't save the GIF: %s",
+  "quickgif.badge.recording": "GIF %s",
+  "quickgif.badge.saving": "Saving GIF…"
+}
