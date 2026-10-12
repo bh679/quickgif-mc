@@ -81,14 +81,14 @@ public final class GifRecorder {
         lastGrabNs = 0;
         startedMs = System.currentTimeMillis();
         state = State.RECORDING;
+        // No chat or action-bar notice here: both are HUD, drawn before the grab, so they would be
+        // in the GIF. RecordingBadge (drawn after the grab) shows the state and how to stop.
         LOGGER.info("Quick GIF: recording {}x{} at {} fps to {}", size[0], size[1], fps, file);
-        notice(Component.translatable("quickgif.recording", GifHotkey.KEY.getTranslatedKeyMessage()), true);
     }
 
     private static void stop() {
         worker.requestStop();
         state = State.SAVING;
-        notice(Component.translatable("quickgif.saving"), true);
     }
 
     /** Even width and height, no wider than the window or the config, keeping the window's shape. */

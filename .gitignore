@@ -49,3 +49,5 @@ __pycache__/
 .claude/worktrees/
 run-server/
 run-b/
+test-results/
+run-c/

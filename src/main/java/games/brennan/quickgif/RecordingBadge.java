@@ -18,7 +18,7 @@ import org.joml.Matrix4fStack;
 import java.util.function.Consumer;
 
 /**
- * A blinking red dot and the elapsed time in the top-left corner while recording ("Saving…" after).
+ * A blinking red dot, the elapsed time and the key to stop, top-left, while recording ("Saving…" after).
  *
  * <p>Drawn on {@link RenderFrameEvent.Post} at LOW, after {@link GifRecorder} grabbed the frame at
  * NORMAL, so it is on screen only and never in the GIF — which is also why it stays visible with F1.
@@ -51,7 +51,8 @@ public final class RecordingBadge {
                 g.fill(MARGIN, cy - DOT, MARGIN + DOT * 2, cy + DOT, RED);
             }
             long s = GifRecorder.elapsedMs() / 1000;
-            label = Component.translatable("quickgif.badge.recording", String.format("%d:%02d", s / 60, s % 60));
+            label = Component.translatable("quickgif.badge.recording",
+                String.format("%d:%02d", s / 60, s % 60), GifHotkey.KEY.getTranslatedKeyMessage());
         } else {
             label = Component.translatable("quickgif.badge.saving");
         }
