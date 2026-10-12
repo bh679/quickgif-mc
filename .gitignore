@@ -47,3 +47,5 @@ __pycache__/
 
 # Local worktrees
 .claude/worktrees/
+run-server/
+run-b/

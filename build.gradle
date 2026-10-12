@@ -56,6 +56,27 @@ neoForge {
             if (project.hasProperty('clientDir')) {
                 gameDirectory = project.file(project.property('clientDir').toString())
             }
+            // Join a server straight away: ./gradlew runClient -PquickJoin=127.0.0.1:25743
+            if (project.hasProperty('quickJoin')) {
+                programArguments.addAll '--quickPlayMultiplayer', project.property('quickJoin').toString()
+            }
+            // Dev testing without a keyboard: start a recording N seconds after joining a world,
+            // let it run N seconds, then stop it (DevAutoRecord). ./gradlew runClient -PautoRecord=8
+            // A second client beside the first needs its own name, or the server kicks the first.
+            if (project.hasProperty('username')) {
+                programArguments.addAll '--username', project.property('username').toString()
+            }
+            if (project.hasProperty('autoRecord')) {
+                systemProperty 'quickgif.autoRecord', project.property('autoRecord').toString()
+            }
+        }
+
+        // A dedicated server never loads Quick GIF (client-only); this run checks that it stays that
+        // way and gives a dev client something to join.
+        server {
+            server()
+            programArgument '--nogui'
+            gameDirectory = project.file('run-server')
         }
 
         configureEach {
