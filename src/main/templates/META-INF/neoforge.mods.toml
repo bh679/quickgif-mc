@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+issueTrackerURL="https://github.com/bh679/quickgif-mc/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+description='''${mod_description}'''
+displayURL="https://github.com/bh679/quickgif-mc"
+# Client-only: servers never need it, so it never asks a server for a matching version.
+displayTest="IGNORE_ALL_VERSION"
+
+# Client-only: nothing to sync, so a server never needs it and a client can join any server.
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${loader_version_range}"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="CLIENT"
